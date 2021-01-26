@@ -6,7 +6,9 @@ public class Circle {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
 	    double circleRadius, circlePerimeter, circleArea;
+
         System.out.println("Input circle radius: ");
         circleRadius = sc.nextDouble();
 
@@ -15,5 +17,7 @@ public class Circle {
 
         System.out.printf("\nPerimeter of circle is: %.3f", circlePerimeter);
         System.out.printf("\nArea of circle is: %.3f", circleArea);
+
+        sc.close();
     }
 }
