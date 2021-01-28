@@ -10,6 +10,7 @@ public class TheLoan {
         payOfMonth = (mLoan / 12) + interestOfMonth;
 
         System.out.println("The interest of month is: " + interestOfMonth);
+
         System.out.println("The payment of month is: " + payOfMonth);
 
     }
