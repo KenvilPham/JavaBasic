@@ -3,48 +3,64 @@ package com.home.javabasic.day3.baitapvn;
 import java.util.Scanner;
 
 public class Bai3 {
+
+    public static void inMaTran(int[][] arr, int row, int col) {
+        for (int i = 0; i < row; i++) {
+            System.out.println();
+            for (int j = 0; j < col; j++) {
+                System.out.printf("%d\t", arr[i][j]);
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap vao kich thuoc cua mang 3 chieu (m, n, k)");
-        int m = sc.nextInt();
+        System.out.println("Nhap vao so n = ");
         int n = sc.nextInt();
-        int h = sc.nextInt();
+        int[][] A = new int[n][n];
+        int[][] B = new int[n][n];
 
-        int[][][] arr = new int[m][n][h];
-        int sum = 0;
+        int[][] C = new int[n][n];
 
-        System.out.println("Nhap vao cac phan tu cua mang 3 chieu: ");
-        for (int i = 0; i < m; i++) {
+        int[][] D = new int[n][n];
+        int[][] E = new int[n][n];
+
+        System.out.println("Nhap vao cac phan tu cua ma tran A: ");
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                for (int k = 0; k < h; k++) {
-                    System.out.println("Nhap vao arr["+i+"]["+j+"]["+k+"] = ");
-                    arr[i][j][k] = sc.nextInt();
-                }
+                A[i][j] = sc.nextInt();
             }
         }
 
-        System.out.println("\nMang da nhap la: ");
-        for (int i = 0; i < m; i++) {
-            System.out.println();
+        System.out.println("Nhap vao cac phan tu cua ma tran B: ");
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.println();
-                for (int k = 0; k < h; k++) {
-                    System.out.printf("%d\t", arr[i][j][k]);
-                }
+                B[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("\nMa tran A da nhap la: ");
+        inMaTran(A, n, n);
+        System.out.println("\nMa tran B da nhap la: ");
+        inMaTran(B, n, n);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                C[i][j] = A[i][j] + B[i][j];
+            }
+        }
+        System.out.println("\nTong cua 2 ma tran A va B la C = ");
+        inMaTran(C, n, n);
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                D[i][j] = A[j][i];
+                E[i][j] = B[j][i];
             }
         }
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                for (int k = 0; k < h; k++) {
-                    if (arr[i][j][k] % 5 == 0) {
-                        sum += arr[i][j][k];
-                    }
-                }
-            }
-        }
+        System.out.println("\nMa tran chuyen vi cua ma tran A la D = ");
+        inMaTran(D, n, n);
 
-        System.out.println("Tong cac phan tu chia het cho 5 la sum = " + sum);
-        sc.close();
+        System.out.println("\nMa tran chuyen vi cua ma tran B la E = ");
+        inMaTran(E, n, n);
     }
 }

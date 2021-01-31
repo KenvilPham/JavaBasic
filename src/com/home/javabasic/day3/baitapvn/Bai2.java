@@ -3,64 +3,41 @@ package com.home.javabasic.day3.baitapvn;
 import java.util.Scanner;
 
 public class Bai2 {
-
-    public static void inMaTran(int[][] arr, int row, int col) {
-        for (int i = 0; i < row; i++) {
-            System.out.println();
-            for (int j = 0; j < col; j++) {
-                System.out.printf("%d\t", arr[i][j]);
-            }
+    public static void printArr(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%d ", arr[i]);
         }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap vao so n = ");
+        System.out.println("Nhap vao so phan tu cua mang n = ");
         int n = sc.nextInt();
-        int[][] A = new int[n][n];
-        int[][] B = new int[n][n];
+        int[] arr = new int[n];
 
-        int[][] C = new int[n][n];
-
-        int[][] D = new int[n][n];
-        int[][] E = new int[n][n];
-
-        System.out.println("Nhap vao cac phan tu cua ma tran A: ");
+        System.out.println("Nhap vao cac phan tu cua mang: ");
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                A[i][j] = sc.nextInt();
-            }
+            System.out.println("Phan tu thu i = " + (i+1));
+            arr[i] = sc.nextInt();
         }
 
-        System.out.println("Nhap vao cac phan tu cua ma tran B: ");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                B[i][j] = sc.nextInt();
-            }
-        }
-        System.out.println("\nMa tran A da nhap la: ");
-        inMaTran(A, n, n);
-        System.out.println("\nMa tran B da nhap la: ");
-        inMaTran(B, n, n);
+        System.out.println("\nMang da nhap arr: ");
+        printArr(arr);
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                C[i][j] = A[i][j] + B[i][j];
+            for (int j = i+1; j < n; j++) {
+                if (arr[j] >= arr[i]) {
+                    int temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
             }
         }
-        System.out.println("\nTong cua 2 ma tran A va B la C = ");
-        inMaTran(C, n, n);
+        System.out.println("\nMang da sap xep giam dan la: ");
+        printArr(arr);
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                D[i][j] = A[j][i];
-                E[i][j] = B[j][i];
-            }
-        }
+        System.out.println("\nPhan tu lon nhat cua mang la arr[0] = : " + arr[0]);
+        System.out.println("Phan tu lon thu 2 cua mang la arr[1] = : " + arr[1]);
 
-        System.out.println("\nMa tran chuyen vi cua ma tran A la D = ");
-        inMaTran(D, n, n);
-
-        System.out.println("\nMa tran chuyen vi cua ma tran B la E = ");
-        inMaTran(E, n, n);
+        sc.close();
     }
 }
