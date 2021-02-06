@@ -3,6 +3,7 @@ package com.home.javabasic.day3.baitapvn;
 import java.util.Scanner;
 
 public class Bai1 {
+
     public static boolean isPrimeNumber(int n) {
         boolean isPrime = true;
         for (int i = 2; i <= Math.sqrt(n); i++) {
