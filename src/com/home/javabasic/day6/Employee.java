@@ -1,5 +1,7 @@
 package com.home.javabasic.day6;
 
+import java.util.Scanner;
+
 abstract class Employee {
     private String name;
     private int id;
@@ -7,6 +9,8 @@ abstract class Employee {
     private String phoneNumber;
     private String email;
     private float salary;
+
+    Scanner scanner = new Scanner(System.in);
 
     public Employee() {
     }
@@ -68,6 +72,31 @@ abstract class Employee {
         this.salary = salary;
     }
 
+    public void input() {
+        System.out.println("Input employee information: ");
+        System.out.print("ID: ");
+        id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Name: ");
+        name = scanner.nextLine();
+        System.out.print("Age: ");
+        age = Integer.parseInt(scanner.nextLine());
+        System.out.print("Phone number: ");
+        phoneNumber = scanner.nextLine();
+        System.out.print("Email: ");
+        email = scanner.nextLine();
+        System.out.print("Basic salary: ");
+        salary = scanner.nextFloat();
+    }
+
+    public String toString() {
+        return "ID: " + id
+                + "\nName: " + name
+                + "\nAge: " + age
+                + "\nPhone number: " + phoneNumber
+                + "\nEmail: " + email
+                + "\nBasic salary: " + salary;
+    }
+
     public void getEmployeeInfo() {
         System.out.println("ID: " + id
                 + "\nName: " + name
@@ -76,5 +105,6 @@ abstract class Employee {
                 + "\nEmail: " + email
                 + "\nBasic salary: " + salary);
     }
+
     abstract float getRealSalary();
 }

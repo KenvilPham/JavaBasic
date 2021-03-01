@@ -20,6 +20,13 @@ public class Tester extends Employee {
     }
 
     @Override
+    public void input() {
+        super.input();
+        System.out.print("Number of bug: ");
+        numberOfBug = scanner.nextInt();
+    }
+
+    @Override
     float getRealSalary() {
         return (getSalary() + numberOfBug * 50000);
     }
@@ -30,5 +37,12 @@ public class Tester extends Employee {
         super.getEmployeeInfo();
         System.out.println("Number of bug: " + numberOfBug);
         System.out.println("Real earnings: " + getRealSalary());
+    }
+
+    @Override
+    public String toString() {
+        System.out.println("\n***********Information of tester: " + getName() + " ***********");
+        return super.toString() + "\nNumber of bug: " + numberOfBug
+                                + "\nReal earnings: " + getRealSalary();
     }
 }

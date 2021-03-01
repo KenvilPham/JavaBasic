@@ -1,56 +1,35 @@
 package com.home.javabasic.day6;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Developer mDeveloper = new Developer("Pham Duc Sang", 1, 18, "0888888888", "kenvil.pham@gmail.com", 120000f, 5.1f);
-//        Tester mTester = new Tester("Doan Kim Dung", 2, 12, "0981197213", "mr.morning@gmail.com", 80000f, 30);
         Scanner scanner = new Scanner(System.in);
-        String name, phoneNumber, email;
-        int id, age, numberOfBug;
-        float basicSalary, overTime;
-
-        System.out.println("Input developer information: ");
-        System.out.print("ID: ");
-        id = Integer.valueOf(scanner.nextLine());
-        System.out.print("Name: ");
-        name = scanner.nextLine();
-        System.out.print("Age: ");
-        age = Integer.valueOf(scanner.nextLine());
-        System.out.print("Phone number: ");
-        phoneNumber = scanner.nextLine();
-        System.out.print("Email: ");
-        email = scanner.nextLine();
-        System.out.print("Basic salary: ");
-        basicSalary = scanner.nextFloat();
-        System.out.print("Over time: ");
-        overTime = scanner.nextFloat();
+        System.out.println("Input number of employees: ");
+        int numberOfEmployees = scanner.nextInt();
         scanner.nextLine();
 
-        Developer mDeveloper = new Developer(name, id, age, phoneNumber, email, basicSalary, overTime);
+        List<Employee> employees = new ArrayList<>();
 
-        System.out.println("Input tester information: ");
-        System.out.print("ID: ");
-        id = Integer.valueOf(scanner.nextLine());
-        System.out.print("Name: ");
-        name = scanner.nextLine();
-        System.out.print("Age: ");
-        age = Integer.valueOf(scanner.nextLine());
-        System.out.print("Phone number: ");
-        phoneNumber = scanner.nextLine();
-        System.out.print("Email: ");
-        email = scanner.nextLine();
-        System.out.print("Basic salary: ");
-        basicSalary = scanner.nextFloat();
-        System.out.print("Number of bug: ");
-        numberOfBug = scanner.nextInt();
-        scanner.nextLine();
+        int typeOfEmployee;
 
-        Tester mTester = new Tester(name, id, age, phoneNumber, email, basicSalary, numberOfBug);
+        for (int i = 0; i < numberOfEmployees; i++) {
+            System.out.println("Choose type of employee: \n1 - Developer \n2 - Tester");
+            typeOfEmployee = scanner.nextInt();
 
-        mDeveloper.getEmployeeInfo();
-        mTester.getEmployeeInfo();
+            if (typeOfEmployee == 1) {
+                employees.add(new Developer());
+            } else if (typeOfEmployee == 2) {
+                employees.add(new Tester());
+            }
+            employees.get(i).input();
+        }
+
+        for (Employee d : employees) {
+            System.out.println(d.toString());
+        }
 
         scanner.close();
     }
