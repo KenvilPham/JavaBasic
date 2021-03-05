@@ -4,12 +4,13 @@ import com.home.javabasic.solidexample.openclosedprinciple.ShippingMethod;
 
 public class Order {
     public long calculateShipping(ShippingMethod shippingMethod) {
-        if (shippingMethod == GROUND) {
-            // Calculate for ground shipping
-        } else if (shippingMethod == AIR) {
-            // Calculate for air shipping
-        } else {
-            // Default
-        }
+//        if (shippingMethod == GROUND) {
+//            // Calculate for ground shipping
+//        } else if (shippingMethod == AIR) {
+//            // Calculate for air shipping
+//        } else {
+//            // Default
+//        }
+        return 0;
     }
 }

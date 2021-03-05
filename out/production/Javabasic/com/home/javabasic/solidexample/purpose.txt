@@ -1,0 +1,32 @@
+S: Single responsibility principle
+    Ý tưởng của nguyên lý này là giúp chúng ta giảm đi sự phức tạp của class.
+    một class chỉ nên phục vụ một mục đích duy nhất.
+
+*************************************************************************
+
+O: Open/closed principle
+    Ý tưởng của nguyên lý này là khi triển khai các tính năng mới, thay vì
+    sửa đổi code đã tồn tại, chúng ta nên mở rộng/kế thừa.
+
+*************************************************************************
+
+L: Liskov substitution principle
+    Nguyên lý này có thể hiểu là các đối tượng của class cha có thể được
+    thay thế bởi các đối tượng của các class con mà không làm thay đổi tính
+    đúng đắn của chương trình.
+
+*************************************************************************
+
+I: Interface segregation principle
+    Nguyên lý này có thể hiểu là thay vì viết một interface cho một mục đích
+    chung chung, chúng ta nên tách thành nhiều interface nhỏ cho các mục đích riêng.
+    Chúng ta không nên bắt buộc client phải implement các method mà client không cần đến.
+
+*************************************************************************
+
+D: Dependency inversion principle
+    Ý tưởng của nguyên lý này là các module cấp cao không nên phụ thuộc vào các
+    module cấp thấp, cả hai nên phụ thuộc vào abstraction.
+
+*************************************************************************
+Source: https://kipalog.com/posts/Tim-hieu-nhanh-SOLID-than-thanh?fbclid=IwAR0XFXcMngmLjbRKcONOKgUCLgpPt7_V9J5lXO2pGxMGvMfAi_R-zmwBU9o
