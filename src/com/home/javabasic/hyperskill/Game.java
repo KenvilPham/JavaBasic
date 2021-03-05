@@ -1,11 +1,12 @@
 package com.home.javabasic.hyperskill;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
     private static final String CELL_IS_OCCUPIED = "This cell is occupied! Choose another one!";
     private static final String SHOULD_ENTER_NUMBERS = "You should enter numbers!";
-    private static final String OVER_BOUND = "Coordinates should be from 1 to 3!";
+    private static final String OVER_BOUND = "Coordinates should be from 1 to 3 !";
     private static final String MAKING_MOVE_CONTINUOUS = "Making move level \"easy\"";
 
     private Scanner scanner = new Scanner(System.in);
@@ -17,9 +18,6 @@ public class Game {
     }
 
     private void createField() {
-//        System.out.print("Enter cells: ");
-//        String initialState = scanner.nextLine();
-//        field = new Field(initialState);
         field = new Field();
         printField();
     }
@@ -29,18 +27,45 @@ public class Game {
     }
 
     private void printGameState() {
-        System.out.println(field.getState());
+        switch (field.getState()) {
+            case DRAW:
+            case O_WINS:
+            case X_WINS:
+                System.out.println(field.getState());
+                break;
+        }
+    }
+
+    public Field.FieldState getState() {
+        return field.getState();
     }
 
     public void move() {
-        int[] coordinates = getCoordinates();
-        if (field.isXmove()) {
+        int[] coordinates = new int[2];
+        if (field.isXMove()) {
+            coordinates = getCoordinates();
             field.setX(coordinates);
         } else {
+            Random rd = new Random();
+            System.out.println(MAKING_MOVE_CONTINUOUS);
+            do {
+                for (int i = 0; i < 2; i++) {
+                    coordinates[i] = rd.nextInt(3) + 1;
+                }
+            } while (!checkOccupied(coordinates));
             field.setO(coordinates);
         }
         printField();
         printGameState();
+    }
+
+    private boolean checkOccupied(int[] coor) {
+        coor[0]--;
+        coor[1]--;
+        if (field.isOccupied(coor)) {
+            return false;
+        }
+        return true;
     }
 
     private int[] getCoordinates() {
@@ -68,12 +93,11 @@ public class Game {
             }
         }
 
-        coordinates[0]--;
-        coordinates[1]--;
-        if (field.isOccupied(coordinates)) {
+        if (!checkOccupied(coordinates)) {
             System.out.println(CELL_IS_OCCUPIED);
             return false;
         }
+
         return true;
     }
 }
