@@ -1,2 +1,5 @@
-package com.home.javabasic.day9.btvn1;public interface IHinhTron {
+package com.home.javabasic.day9.btvn1;
+
+public interface IHinhTron {
+    double duongKinh();
 }
